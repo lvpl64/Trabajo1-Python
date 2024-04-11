@@ -1,0 +1,13 @@
+from flask import Flask
+from flask import make_response
+app = Flask(__name__)
+@app.route('/')
+def index():
+ response = make_response('<h1>El documento tiene cookies.</h1>')
+ response.set_cookie('answer', '42')
+ return response
+@app.route('/user/<Valentina>')
+def user(Valentina):
+ return '<h1>Bienvenida %s!</h1>' % Valentina
+if __name__ == '__main__':
+ app.run(debug=True)
